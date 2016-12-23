@@ -15,7 +15,7 @@ class ChatBotViewController : UIViewController{
     @IBOutlet var textField : UITextField?
     let searchString : String? = nil
     var base_url = "http://api.musixmatch.com/ws/1.1/"
-    var api_key = "&apikey=bac80b7f06af437edc250ebe533c6b5c"
+    var api_key = "&apikey="
     var searchText : String?
     
     override func viewDidLoad() {
