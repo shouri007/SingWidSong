@@ -1,0 +1,336 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C1C37B8B1E0C36280022DD96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C37B8A1E0C36280022DD96 /* AppDelegate.swift */; };
+		C1C37B8D1E0C36280022DD96 /* PlaySongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C37B8C1E0C36280022DD96 /* PlaySongViewController.swift */; };
+		C1C37B901E0C36280022DD96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1C37B8E1E0C36280022DD96 /* Main.storyboard */; };
+		C1C37B931E0C36280022DD96 /* SingWidSong.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1C37B911E0C36280022DD96 /* SingWidSong.xcdatamodeld */; };
+		C1C37B951E0C36280022DD96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1C37B941E0C36280022DD96 /* Assets.xcassets */; };
+		C1C37B981E0C36280022DD96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1C37B961E0C36280022DD96 /* LaunchScreen.storyboard */; };
+		C1C37BA01E0C38190022DD96 /* ChatBotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C37B9F1E0C38190022DD96 /* ChatBotViewController.swift */; };
+		C1C37BA21E0C382D0022DD96 /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C37BA11E0C382C0022DD96 /* FavouritesViewController.swift */; };
+		C1C37BA41E0C38DE0022DD96 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C37BA31E0C38DE0022DD96 /* TabBarViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C1C37B871E0C36280022DD96 /* SingWidSong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingWidSong.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1C37B8A1E0C36280022DD96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C1C37B8C1E0C36280022DD96 /* PlaySongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySongViewController.swift; sourceTree = "<group>"; };
+		C1C37B8F1E0C36280022DD96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C1C37B921E0C36280022DD96 /* SingWidSong.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SingWidSong.xcdatamodel; sourceTree = "<group>"; };
+		C1C37B941E0C36280022DD96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C1C37B971E0C36280022DD96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C1C37B991E0C36280022DD96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1C37B9F1E0C38190022DD96 /* ChatBotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatBotViewController.swift; sourceTree = "<group>"; };
+		C1C37BA11E0C382C0022DD96 /* FavouritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
+		C1C37BA31E0C38DE0022DD96 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C1C37B841E0C36280022DD96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C1C37B7E1E0C36280022DD96 = {
+			isa = PBXGroup;
+			children = (
+				C1C37B891E0C36280022DD96 /* SingWidSong */,
+				C1C37B881E0C36280022DD96 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C1C37B881E0C36280022DD96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1C37B871E0C36280022DD96 /* SingWidSong.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C1C37B891E0C36280022DD96 /* SingWidSong */ = {
+			isa = PBXGroup;
+			children = (
+				C1C37B8A1E0C36280022DD96 /* AppDelegate.swift */,
+				C1C37B8C1E0C36280022DD96 /* PlaySongViewController.swift */,
+				C1C37B8E1E0C36280022DD96 /* Main.storyboard */,
+				C1C37B941E0C36280022DD96 /* Assets.xcassets */,
+				C1C37B961E0C36280022DD96 /* LaunchScreen.storyboard */,
+				C1C37B991E0C36280022DD96 /* Info.plist */,
+				C1C37B911E0C36280022DD96 /* SingWidSong.xcdatamodeld */,
+				C1C37B9F1E0C38190022DD96 /* ChatBotViewController.swift */,
+				C1C37BA11E0C382C0022DD96 /* FavouritesViewController.swift */,
+				C1C37BA31E0C38DE0022DD96 /* TabBarViewController.swift */,
+			);
+			path = SingWidSong;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C1C37B861E0C36280022DD96 /* SingWidSong */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1C37B9C1E0C36280022DD96 /* Build configuration list for PBXNativeTarget "SingWidSong" */;
+			buildPhases = (
+				C1C37B831E0C36280022DD96 /* Sources */,
+				C1C37B841E0C36280022DD96 /* Frameworks */,
+				C1C37B851E0C36280022DD96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SingWidSong;
+			productName = SingWidSong;
+			productReference = C1C37B871E0C36280022DD96 /* SingWidSong.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C1C37B7F1E0C36280022DD96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = Shouri;
+				TargetAttributes = {
+					C1C37B861E0C36280022DD96 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 52U4PBXLN9;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C1C37B821E0C36280022DD96 /* Build configuration list for PBXProject "SingWidSong" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C1C37B7E1E0C36280022DD96;
+			productRefGroup = C1C37B881E0C36280022DD96 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1C37B861E0C36280022DD96 /* SingWidSong */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C1C37B851E0C36280022DD96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1C37B981E0C36280022DD96 /* LaunchScreen.storyboard in Resources */,
+				C1C37B951E0C36280022DD96 /* Assets.xcassets in Resources */,
+				C1C37B901E0C36280022DD96 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C1C37B831E0C36280022DD96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1C37B8D1E0C36280022DD96 /* PlaySongViewController.swift in Sources */,
+				C1C37B8B1E0C36280022DD96 /* AppDelegate.swift in Sources */,
+				C1C37BA01E0C38190022DD96 /* ChatBotViewController.swift in Sources */,
+				C1C37BA21E0C382D0022DD96 /* FavouritesViewController.swift in Sources */,
+				C1C37BA41E0C38DE0022DD96 /* TabBarViewController.swift in Sources */,
+				C1C37B931E0C36280022DD96 /* SingWidSong.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C1C37B8E1E0C36280022DD96 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1C37B8F1E0C36280022DD96 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C1C37B961E0C36280022DD96 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1C37B971E0C36280022DD96 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C1C37B9A1E0C36280022DD96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C1C37B9B1E0C36280022DD96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C1C37B9D1E0C36280022DD96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 52U4PBXLN9;
+				INFOPLIST_FILE = SingWidSong/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Shouri.SingWidSong;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C1C37B9E1E0C36280022DD96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 52U4PBXLN9;
+				INFOPLIST_FILE = SingWidSong/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Shouri.SingWidSong;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C1C37B821E0C36280022DD96 /* Build configuration list for PBXProject "SingWidSong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1C37B9A1E0C36280022DD96 /* Debug */,
+				C1C37B9B1E0C36280022DD96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1C37B9C1E0C36280022DD96 /* Build configuration list for PBXNativeTarget "SingWidSong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1C37B9D1E0C36280022DD96 /* Debug */,
+				C1C37B9E1E0C36280022DD96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C1C37B911E0C36280022DD96 /* SingWidSong.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C1C37B921E0C36280022DD96 /* SingWidSong.xcdatamodel */,
+			);
+			currentVersion = C1C37B921E0C36280022DD96 /* SingWidSong.xcdatamodel */;
+			path = SingWidSong.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C1C37B7F1E0C36280022DD96 /* Project object */;
+}

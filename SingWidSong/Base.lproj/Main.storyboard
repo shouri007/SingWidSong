@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bRu-PC-O7I">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item 2-->
+        <scene sceneID="9Jg-NG-Ef5">
+            <objects>
+                <viewController id="w19-U4-2j6" customClass="FavouritesViewController" customModule="SingWidSong" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RNb-0h-WEh"/>
+                        <viewControllerLayoutGuide type="bottom" id="8wZ-ha-spt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Du-u8-CMB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="cz0-LJ-iuL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxG-6y-cJd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-284" y="49"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="hSL-y4-oMB">
+            <objects>
+                <viewController id="6Hg-ln-EsS" customClass="ChatBotViewController" customModule="SingWidSong" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q0v-5J-rS4"/>
+                        <viewControllerLayoutGuide type="bottom" id="EVJ-gC-8DB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7i8-Ft-9qd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sue-Di-Ef4">
+                                <rect key="frame" x="139" y="302" width="97" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jg6-bN-jjh">
+                                <rect key="frame" x="166" y="250" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFH-PQ-iSi">
+                                <rect key="frame" x="161" y="381" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="search" destination="6Hg-ln-EsS" eventType="touchUpInside" id="mKi-zh-P8T"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Sue-Di-Ef4" firstAttribute="top" secondItem="jg6-bN-jjh" secondAttribute="bottom" constant="31" id="D6o-ZU-K43"/>
+                            <constraint firstItem="Sue-Di-Ef4" firstAttribute="centerX" secondItem="7i8-Ft-9qd" secondAttribute="centerX" id="c8V-w5-vln"/>
+                            <constraint firstAttribute="trailing" secondItem="jg6-bN-jjh" secondAttribute="trailing" constant="167" id="eJi-V3-9Im"/>
+                            <constraint firstItem="Sue-Di-Ef4" firstAttribute="centerY" secondItem="7i8-Ft-9qd" secondAttribute="centerY" id="jzN-d0-gmj"/>
+                            <constraint firstItem="jg6-bN-jjh" firstAttribute="top" secondItem="Q0v-5J-rS4" secondAttribute="bottom" constant="230" id="p7H-V1-KRU"/>
+                            <constraint firstItem="jg6-bN-jjh" firstAttribute="leading" secondItem="7i8-Ft-9qd" secondAttribute="leading" constant="166" id="sqV-ba-POM"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Chat" id="vJy-Ml-4du"/>
+                    <connections>
+                        <outlet property="searchButton" destination="lFH-PQ-iSi" id="kqc-yP-Sj4"/>
+                        <outlet property="textField" destination="Sue-Di-Ef4" id="d57-Xq-tT4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2kD-Dh-mUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-284" y="-605"/>
+        </scene>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="hpp-8e-r7a">
+            <objects>
+                <tabBarController id="bRu-PC-O7I" customClass="TabBarViewController" customModule="SingWidSong" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="U1b-nQ-EgV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="6Hg-ln-EsS" kind="relationship" relationship="viewControllers" id="tQ1-tw-SQd"/>
+                        <segue destination="w19-U4-2j6" kind="relationship" relationship="viewControllers" id="moK-1t-qwL"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ENW-Jw-fIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1236" y="-278"/>
+        </scene>
+    </scenes>
+</document>
