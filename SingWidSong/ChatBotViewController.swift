@@ -14,8 +14,11 @@ class ChatBotViewController : UIViewController{
     @IBOutlet var searchButton : UIButton?
     @IBOutlet var textField : UITextField?
     let searchString : String? = nil
-    var base_url = "http://api.musixmatch.com/ws/1.1/"
-    var api_key = "&apikey="
+    var musix_base_url = "http://api.musixmatch.com/ws/1.1/"
+    let musix_api_key = "&apikey=bac80b7f06af437edc250ebe533c6b5c"
+    var lastfm_base_url = "http://ws.audioscrobbler.com/2.0/"
+    let lastfm_api_key = "&api_key=f49465598c43e3f270feebb55ce289d3&format=json"
+    
     var searchText : String?
     
     override func viewDidLoad() {
@@ -29,9 +32,16 @@ class ChatBotViewController : UIViewController{
     @IBAction func search(){
         
         let text = getSearchText()
-        print(text)
-        let url = base_url + "track.get?track_id=15445219" + api_key
-
+        let api_method = "?method=track.search&track=closer"
+        let url = lastfm_base_url + api_method + lastfm_api_key
+        retrieveData(url: url)
+//        url = musix_base_url + "matcher.track.get?q_artist=" + musix_api_key
+//        retrieveData(url: url)
+//        
+    }
+    
+    func retrieveData(url : String){
+        
         let request = URLRequest(url: URL(string: url)!)
         let urlSession = URLSession.shared
         let downloadTask = urlSession.downloadTask(with: request, completionHandler: {
@@ -42,7 +52,7 @@ class ChatBotViewController : UIViewController{
             }
             do{
                 let res = try Data(contentsOf: data!)
-                self.parseJSON(data: res)
+                self.parseJSONforLastFM(data: res)
             }catch{
                 print(error)
             }
@@ -50,13 +60,23 @@ class ChatBotViewController : UIViewController{
         downloadTask.resume()
     }
     
-    func parseJSON(data : Data){
+    func parseJSONforLastFM(data : Data){
         do{
             let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-            let jsonMessage = jsonResult["message"] as! [String:Any]
-            let jsonBody = jsonMessage["body"]
-            print(jsonBody)
+            let jsonMessage = jsonResult["results"] as? [String:Any]
+            let jsonBody = jsonMessage!["trackmatches"] as? [String:Any]
+            let results = jsonBody!["track"] as? NSArray
+            var count = results?.count
+            var i = 0
+            while i < (results?.count)!{
+                var suggestion = results?[i] as? [String:Any]
+                print(suggestion!["artist"])
+                i = i + 1
+            }
             
+//            let results = jsonBody!["track"] as? [String:Any]
+//            print(results)
+//
         }catch{
             print(error)
         }
