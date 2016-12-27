@@ -6,4 +6,14 @@
 //  Copyright © 2016 Shouri. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class LastFMSuggestionCell : UITableViewCell{
+    
+    @IBOutlet var artistLabel : UILabel?
+    
+    func setLabel(artistName : String){
+        self.artistLabel?.text = artistName
+    }
+    
+}
