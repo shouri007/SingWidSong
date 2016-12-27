@@ -8,36 +8,40 @@
 
 import UIKit
 
-protocol LastFmSuggestionViewControllerDelegate {
-    
-    var num_rows : Int {get set}
-    func setNumberOfRows()
-}
-
-class LastFmSuggestionsViewController : UITableViewController{
+class LastFmSuggestionsViewController :UITableViewController{
     
     var num_rows = 0
+    var suggestions : [LastFmSuggestion] = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tableView.rowHeight = 80
-    }
-    
-    init(count : Int){
+    init(_ rows : Int, _ sug : [LastFmSuggestion]){
         super.init(style: .grouped)
-        self.num_rows = count
-        
+        self.num_rows = rows
+        self.suggestions = sug
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.rowHeight = 80
+        let lfmcellNib = UINib(nibName: "LastFMSuggestionCell", bundle: nil)
+        
+        self.tableView.register(lfmcellNib, forCellReuseIdentifier: "LastFmCell")
+    }
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return num_rows
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "LastFmCell") as! LastFMSuggestionCell
+        cell.setLabel(artistName: suggestions[indexPath.row].artist!)
+        return cell
+    }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
+    
 }
