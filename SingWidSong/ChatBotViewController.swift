@@ -9,8 +9,13 @@
 import UIKit
 import Foundation
 
+protocol ChatBotDelegate{
+    func setNumberOfRows(rows : Int)
+}
+
 class ChatBotViewController : UIViewController{
     
+    //declarations
     @IBOutlet var searchButton : UIButton?
     @IBOutlet var textField : UITextField?
     let searchString : String? = nil
@@ -18,26 +23,23 @@ class ChatBotViewController : UIViewController{
     let musix_api_key = "&apikey=bac80b7f06af437edc250ebe533c6b5c"
     var lastfm_base_url = "http://ws.audioscrobbler.com/2.0/"
     let lastfm_api_key = "&api_key=f49465598c43e3f270feebb55ce289d3&format=json"
-    
+    var num_suggestions = 0
     var searchText : String?
+    var suggestions : [LastFmSuggestion] = []
     
-    override func viewDidLoad() {
-    }
-    
+    //function implementations
     func getSearchText() -> String{
         searchText = textField?.text
         return searchText!
     }
     
+    //results are returned by calling the api functions based on user input
     @IBAction func search(){
         
         let text = getSearchText()
         let api_method = "?method=track.search&track=closer"
         let url = lastfm_base_url + api_method + lastfm_api_key
         retrieveData(url: url)
-//        url = musix_base_url + "matcher.track.get?q_artist=" + musix_api_key
-//        retrieveData(url: url)
-//        
     }
     
     func retrieveData(url : String){
@@ -60,23 +62,25 @@ class ChatBotViewController : UIViewController{
         downloadTask.resume()
     }
     
+    //parses json data for results returned by the LastFM api.
     func parseJSONforLastFM(data : Data){
+        
         do{
             let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
             let jsonMessage = jsonResult["results"] as? [String:Any]
             let jsonBody = jsonMessage!["trackmatches"] as? [String:Any]
             let results = jsonBody!["track"] as? NSArray
-            var count = results?.count
+            num_suggestions = (results?.count)!
             var i = 0
             while i < (results?.count)!{
                 var suggestion = results?[i] as? [String:Any]
-                print(suggestion!["artist"])
+                let artist = suggestion!["artist"] as? String
+                let name = suggestion!["name"] as? String
+                let sug = LastFmSuggestion(artist: artist!, name: name!)
+                suggestions.append(sug)
                 i = i + 1
             }
-            
-//            let results = jsonBody!["track"] as? [String:Any]
-//            print(results)
-//
+            present(LastFmSuggestionsViewController(num_suggestions,suggestions), animated: true, completion: nil)
         }catch{
             print(error)
         }
