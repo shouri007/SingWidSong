@@ -9,36 +9,40 @@
 import UIKit
 import Foundation
 
-protocol ChatBotDelegate{
-    func setNumberOfRows(rows : Int)
-}
-
-class ChatBotViewController : UIViewController{
+class ChatBotViewController : UIViewController, LastFmSuggestionViewControlleDelegate{
     
     //declarations
     @IBOutlet var searchButton : UIButton?
     @IBOutlet var textField : UITextField?
-    let searchString : String? = nil
+    
+    //api related variables
     var musix_base_url = "http://api.musixmatch.com/ws/1.1/"
     let musix_api_key = "&apikey=bac80b7f06af437edc250ebe533c6b5c"
     var lastfm_base_url = "http://ws.audioscrobbler.com/2.0/"
     let lastfm_api_key = "&api_key=f49465598c43e3f270feebb55ce289d3&format=json"
+    
     var num_suggestions = 0
     var searchText : String?
     var suggestions : [LastFmSuggestion] = []
+   
+    //variables for determining which function to be called in retrieveData()
+    var searchLastFm = true
+    var searchMusixMatch = true
     
     //function implementations
-    func getSearchText() -> String{
-        searchText = textField?.text
-        return searchText!
-    }
+//    func getSearchText() -> String{
+//        searchText = textField?.text
+//        return searchText!
+//    }
     
     //results are returned by calling the api functions based on user input
     @IBAction func search(){
         
-        let text = getSearchText()
-        let api_method = "?method=track.search&track=closer"
+//        let text = getSearchText()
+        let api_method = "?method=track.search&track=closer" //for lastFm
         let url = lastfm_base_url + api_method + lastfm_api_key
+        self.searchLastFm = true
+        self.searchMusixMatch = false
         retrieveData(url: url)
     }
     
@@ -54,7 +58,12 @@ class ChatBotViewController : UIViewController{
             }
             do{
                 let res = try Data(contentsOf: data!)
-                self.parseJSONforLastFM(data: res)
+                if(self.searchLastFm){
+                    self.parseJSONforLastFM(data: res)
+                }else if(self.searchMusixMatch){
+                    print("hello")
+                    self.parseJSONforMusixMatch(data : res)
+                }
             }catch{
                 print(error)
             }
@@ -84,5 +93,31 @@ class ChatBotViewController : UIViewController{
         }catch{
             print(error)
         }
+    }
+    
+    //parses json data for results returned by the MusixMatch api.
+    func parseJSONforMusixMatch(data : Data){
+        
+        do{
+            let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
+            print(jsonResult)
+        }catch{
+            print(error)
+        }
+    }
+    
+    
+    func getSelectedArtist(item : LastFmSuggestion){
+        
+        var selectedArtist = item.artist!
+        var searchedSong = item.name!
+        print(selectedArtist)
+        print(searchedSong)
+        let api_method = "matcher.track.get?"
+        let params = "q_artist=" + selectedArtist + "&q_track=" + searchedSong
+        let url = musix_base_url + api_method + params + musix_api_key
+        self.searchMusixMatch = true
+        self.searchLastFm = false
+        retrieveData(url: url)
     }
 }
