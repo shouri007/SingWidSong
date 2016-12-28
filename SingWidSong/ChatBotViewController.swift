@@ -24,10 +24,15 @@ class ChatBotViewController : UIViewController, LastFmSuggestionViewControlleDel
     var num_suggestions = 0
     var searchText : String?
     var suggestions : [LastFmSuggestion] = []
-   
+    var track_id : String!
+    var artist_id : String!
+    var lyrics_id : String!
+    var lyrics : String!
+
     //variables for determining which function to be called in retrieveData()
     var searchLastFm = true
     var searchMusixMatch = true
+    var getLyrics = false
     
     //function implementations
 //    func getSearchText() -> String{
@@ -43,9 +48,10 @@ class ChatBotViewController : UIViewController, LastFmSuggestionViewControlleDel
         let url = lastfm_base_url + api_method + lastfm_api_key
         self.searchLastFm = true
         self.searchMusixMatch = false
-        retrieveData(url: url)
+        retrieveData(url: url) //call for retrieving lastFM suggestions based on user input
     }
     
+    //function that is called whenever a request has to be made for an api.
     func retrieveData(url : String){
         
         let request = URLRequest(url: URL(string: url)!)
@@ -61,8 +67,9 @@ class ChatBotViewController : UIViewController, LastFmSuggestionViewControlleDel
                 if(self.searchLastFm){
                     self.parseJSONforLastFM(data: res)
                 }else if(self.searchMusixMatch){
-                    print("hello")
                     self.parseJSONforMusixMatch(data : res)
+                }else if(self.getLyrics){
+                    self.parseJSONforLyrics(data: res)
                 }
             }catch{
                 print(error)
@@ -100,24 +107,54 @@ class ChatBotViewController : UIViewController, LastFmSuggestionViewControlleDel
         
         do{
             let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-            print(jsonResult)
+            let jsonBody = jsonResult["message"] as! [String:Any]
+            let jsonTrack = jsonBody["body"] as! [String:Any]
+            let results = jsonTrack["track"] as! [String:Any]
+            self.track_id = String(describing: results["track_id"]!)
+            self.lyrics_id = String(describing: results["lyrics_id"]!)
+            self.artist_id = String(describing : results["artist_id"]!)
+            let api_method = "track.lyrics.get?"
+            let params = "track_id=" + track_id!
+            let url = musix_base_url + api_method + params + musix_api_key
+            self.getLyrics = true
+            self.searchMusixMatch = false
+            self.searchLastFm = false
+            retrieveData(url: url) // call for musix match to get the lyrics
+            
         }catch{
             print(error)
         }
     }
     
-    
+    //parses json data for results returned from track_id by the musix match api.
+    func parseJSONforLyrics(data : Data){
+        do{
+            let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
+            let jsonBody = jsonResult["message"] as! [String:Any]
+            let jsonlyrics = jsonBody["body"] as! [String:Any]
+            let results = jsonlyrics["lyrics"] as! [String:Any]
+            self.lyrics = results["lyrics_body"] as! String
+            let lyrics_copyright = results["lyrics_copyright"] as! String
+            print(self.lyrics)
+            self.searchMusixMatch = true
+            self.searchLastFm = true
+            self.getLyrics = false
+        }catch{
+            print(error)
+        }
+    }
+ 
     func getSelectedArtist(item : LastFmSuggestion){
         
         var selectedArtist = item.artist!
         var searchedSong = item.name!
-        print(selectedArtist)
-        print(searchedSong)
+        selectedArtist = selectedArtist.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        searchedSong = searchedSong.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let api_method = "matcher.track.get?"
         let params = "q_artist=" + selectedArtist + "&q_track=" + searchedSong
         let url = musix_base_url + api_method + params + musix_api_key
         self.searchMusixMatch = true
         self.searchLastFm = false
-        retrieveData(url: url)
+        retrieveData(url: url) //call for musix match to get the track_id
     }
 }
